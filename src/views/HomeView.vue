@@ -1,14 +1,23 @@
 <script>
 import QueensParkImage from '@/components/QueensParkImage.vue';
 import tboLogo from '@/assets/tbo-logo.webp';
+import { useRouter } from 'vue-router';
+
 
 export default {
   components: {
     QueensParkImage
   },
   setup() {
+
+    const router = useRouter();
+
+    const goToPage = (page) => {
+      router.push(page);
+    }
     return {
-      tboLogo
+      tboLogo,
+      goToPage
     }
   }
 }
@@ -25,9 +34,9 @@ export default {
         political power comes from our relationships. It's time for us to take back our institutions. It's time for
         Ontarians to Take Back Ontario.</p>
       <div class="buttons">
-        <a class="btn my-8" href="/about">Learn&nbsp;More</a>
-        <a class="btn my-8" href="/events">Events</a>
-        <a class="btn my-8" href="/resources">Resources</a>
+        <button @click="goToPage('about')" class="btn my-8">Learn&nbsp;More</button>
+        <button @click="goToPage('events')" class="btn my-8" href="/events">Events</button>
+        <button @click="goToPage('resources')" class="btn my-8" href="/resources">Resources</button>
         <a class="btn my-8" href="https://signup.takebackontario.ca">Join&nbsp;Us</a>
       </div>
     </main>

@@ -1,18 +1,23 @@
 <template>
   <div class="top-bar">
-    <a href="/">
-      <img :src="tboLogo" alt="Take Back Ontario Logo" class="subpage-logo" />
-    </a>
+      <img @click="backToHome" :src="tboLogo" alt="Take Back Ontario Logo" class="subpage-logo" />
   </div>
 </template>
 
 <script>
 import tboLogo from '@/assets/tbo-logo.webp'
+import { useRouter } from 'vue-router'
 
 export default {
+
   setup() {
+    const router = useRouter();
+    const backToHome = () => {
+      router.push('/')
+    }
     return {
-      tboLogo
+      tboLogo,
+      backToHome
     }
   }
 }
@@ -26,6 +31,7 @@ export default {
   width: auto;
   max-width: 200px;
   padding: 1em;
+  cursor: pointer;
 }
 
 .top-bar {

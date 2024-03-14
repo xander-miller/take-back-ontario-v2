@@ -1,5 +1,6 @@
 <script setup>
 import TobBar from '@/components/TobBar.vue';
+import QueensParkImage from '@/components/QueensParkImage.vue';
 
 </script>
 
